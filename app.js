@@ -9,8 +9,15 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var toDoRouter = require('./routes/to_doroute')
 
+const cors = require('cors');
+var corsOptions = {
+    "credentials" : true,
+    origin: "http://localhost:5173" 
+}
+
 var app = express();
 
+app.use(cors(corsOptions))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
